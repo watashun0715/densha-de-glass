@@ -45,12 +45,12 @@ class SignParser:
                 break
 
         # 行き先を検索（〇〇方面 or 〇〇行き）
-        destination_match = re.search(r'(\w+)[方面|行き|ゆき]', raw_text)
+        destination_match = re.search(r'(\w+)(方面|行き|ゆき)', raw_text)
         if destination_match:
             info.destination = destination_match.group(0)
 
         # 番線を検索（〇番線 or 〇番ホーム）
-        platform_match = re.search(r'(\d+)[番線|番ホーム]', raw_text)
+        platform_match = re.search(r'(\d+)(番線|番ホーム)', raw_text)
         if platform_match:
             info.platform = platform_match.group(0)
 
