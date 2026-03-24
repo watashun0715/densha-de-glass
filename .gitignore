@@ -1,0 +1,34 @@
+# 環境変数（APIキーを含むので絶対にコミットしない）
+.env
+credentials/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# 仮想環境
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# テスト画像（容量が大きい場合）
+data/images/
+!data/images/.gitkeep
+
+# macOS
+.DS_Store
+
+# Docker
+*.log

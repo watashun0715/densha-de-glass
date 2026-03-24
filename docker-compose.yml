@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    container_name: densha-de-glass
+    volumes:
+      # ソースコードをマウント（ホットリロード対応）
+      - .:/app
+      # 画像ファイルの入出力用
+      - ./data:/app/data
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+    command: python src/main.py
+
+  test:
+    build: .
+    container_name: densha-de-glass-test
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: pytest tests/ -v
+    profiles:
+      - test
